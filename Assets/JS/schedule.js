@@ -10,11 +10,11 @@ class schedule {
         this.todaysInfo = [
         {
             hour: 9,
-            info: "test1"
+            info: ""
         },
         {
             hour: 10,
-            info: "test3"
+            info: ""
         },
         {
             hour: 11,

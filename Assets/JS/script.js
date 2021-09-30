@@ -1,7 +1,7 @@
 var $timeContainer = $("#currentDay");
 var todayIS = moment().format("DDDD-YY");
 var todaysSchedule;
-var $schduleDisplay = $(".container");
+var $schduleDisplay = $("#scheduleArea");
 var theTime = Number.parseInt(moment().format("k"));
 var scheduleInfo = new schedule();
 
@@ -10,8 +10,12 @@ var scheduleInfo = new schedule();
 function getSchedule(){
     todaysSchedule = JSON.parse(localStorage.getItem(todayIS));
     if(todaysSchedule === null){
-        localStorage.setItem(todayIS, JSON.stringify(schedule.theSchedule));
-        todaysSchedule = schedule.theSchedule;
+        //create a new object of schedule that will have a default schedule loaded
+        var newSchedule = new schedule;
+        //load default schedule to local
+        localStorage.setItem(todayIS, JSON.stringify(newSchedule.theSchedule));
+        //set the working variable to the default schedule
+        todaysSchedule = newSchedule.theSchedule;   
     }
 }
 
@@ -52,7 +56,6 @@ function showSchedule(){
 
         //color text area based on time of day
         //grey is hours past, red is current hour, green are hours not yet past
-        console.log(theHour > theTime);
         theHour < theTime ? $textEL.addClass("form-control past") :
         theHour === theTime ? $textEL.addClass("form-control present") :
         $textEL.addClass("form-control future");
