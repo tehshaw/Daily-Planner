@@ -10,7 +10,7 @@ var scheduleInfo = new schedule();
 function getSchedule(){
         
     //if there is no localstorage with a key matching todays key then make one
-    if(localStorage.getItem(todayIS) === null){
+    if(localStorage.getItem(todayIS) === null || localStorage.getItem(todayIS) === undefined){
         //create a new object of schedule that will have a default schedule loaded
         var newSchedule = new schedule;
         //load default schedule to local
@@ -20,6 +20,7 @@ function getSchedule(){
 
     }else{
         //if there is a key for today already, get details from local
+        console.log(localStorage.getItem(todayIS));
         todaysSchedule = JSON.parse(localStorage.getItem(todayIS));
     }
 }
