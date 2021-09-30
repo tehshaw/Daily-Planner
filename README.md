@@ -8,9 +8,9 @@ The site will create a new planner for each day while past days will remain in l
 
 ## In action
 
-![Shows the header and the hourly text fields](Assets\Screenshots\Capture.PNG)
+![Shows the header and the hourly text fields](/assets/Screenshots/capture.png)
 
-![Shows colors based on time of day](Assets\Screenshots\Capture2.PNG)
+![Shows colors based on time of day](/assets/Screenshots/capture2.png)
 
 
 https://tehshaw.github.io/Daily-Planner/
