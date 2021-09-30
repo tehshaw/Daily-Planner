@@ -1,6 +1,6 @@
 var $timeContainer = $("#currentDay");
 var todayIS = moment().format("DDDD-YY");
-var todaysSchedule;
+var todaysSchedule = [];
 var $schduleDisplay = $("#scheduleArea");
 var theTime = Number.parseInt(moment().format("k"));
 var scheduleInfo = new schedule();
@@ -9,6 +9,7 @@ var scheduleInfo = new schedule();
 //if there is no schedule for todays date it will make a new instance
 function getSchedule(){
         
+    //if there is no localstorage with a key matching todays key then make one
     if(localStorage.getItem(todayIS) === null){
         //create a new object of schedule that will have a default schedule loaded
         var newSchedule = new schedule;
@@ -16,7 +17,9 @@ function getSchedule(){
         localStorage.setItem(todayIS, JSON.stringify(newSchedule.theSchedule));
         //set the working variable to the default schedule
         todaysSchedule = newSchedule.theSchedule;   
+
     }else{
+        //if there is a key for today already, get details from local
         todaysSchedule = JSON.parse(localStorage.getItem(todayIS));
     }
 }
