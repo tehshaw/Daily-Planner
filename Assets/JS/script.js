@@ -8,14 +8,16 @@ var scheduleInfo = new schedule();
 //get schedule from local storage
 //if there is no schedule for todays date it will make a new instance
 function getSchedule(){
-    todaysSchedule = JSON.parse(localStorage.getItem(todayIS));
-    if(todaysSchedule === null){
+        
+    if(localStorage.getItem(todayIS) === null){
         //create a new object of schedule that will have a default schedule loaded
         var newSchedule = new schedule;
         //load default schedule to local
         localStorage.setItem(todayIS, JSON.stringify(newSchedule.theSchedule));
         //set the working variable to the default schedule
         todaysSchedule = newSchedule.theSchedule;   
+    }else{
+        todaysSchedule = JSON.parse(localStorage.getItem(todayIS));
     }
 }
 
